@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Guess The Number On The Dice</title>
+    <style>
+        h1{
+            text-align: center;
+        }
+
+        #links {
+            text-align: center;
+            font-size: 22px;
+        }
+
+        h2 {
+            text-align: center;
+        }
+
+    </style>
+    <!--&lt;!&ndash;    <th:block th:replace="fragments/header :: header" /></th:block>&ndash;&gt; **(this allows for adding in only partial header)**-->
+</head>
+<body>
+<div th:replace="fragments/navbar :: main-navbar" />
+<h1>Please guess a number between 1 and 6</h1>
+<div th:if="${answer != null}">
+    <h2 th:if="${answer}">You guessed correct! The dice rolled <span th:text="${random}"></span> and you guessed <span th:text="${n}"></span>!</h2>
+    <h2 th:if="${!answer}">sorry...you guessed wrong. The dice rolled <span th:text="${random}"></span> and you guessed <span th:text="${n}"></span>.</h2>
+</div>
+<div id="links">
+    <a href="/roll-dice/1">1</a>
+    <a href="/roll-dice/2">2</a>
+    <a href="/roll-dice/3">3</a>
+    <a href="/roll-dice/4">4</a>
+    <a href="/roll-dice/5">5</a>
+    <a href="/roll-dice/6">6</a>
+</div>
+
+<footer th:replace="fragments/footer :: main-footer" />
+</body>
+</html>
